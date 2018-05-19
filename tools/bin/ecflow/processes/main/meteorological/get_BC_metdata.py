@@ -1,16 +1,15 @@
 #!/usr/bin/env python
 """
-transferring percentile files
-usage: <python> <transfer_files.py> <configuration.cfg>
+Get British Columbia met data
+usage: <python> <get_BC_metdata.py> <configuration.cfg>
 
-Uses paramiko to transfer percentile netCDFs to the
-NKN network, along with a text file that includes the date.
-The date is read from that file and displayed in the map subtitles.
+Uses paramiko to download meteorological data for British Columbia
+from NKN network
 """
 import os
-import paramiko
 import argparse
 from datetime import datetime, timedelta
+import paramiko
 from cdo import Cdo
 import cf_units
 import numpy as np
@@ -21,6 +20,9 @@ from monitor import model_tools
 
 
 def main():
+    ''' Download meteorological data from NKN for British Columbia.
+        Reformat to match U.S. met data and the format expected by
+        MetSim '''
     # read in configuration file
     parser = argparse.ArgumentParser(description='Download met data for ' +
                                      'British Columbia')

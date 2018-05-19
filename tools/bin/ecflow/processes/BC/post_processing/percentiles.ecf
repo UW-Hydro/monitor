@@ -2,9 +2,9 @@
 %include <qsub.h>
 %include <head.h>
 %manual
-Creates netCDFs with percentiles for soil moisture, swe, 
-and soil moisture + swe (total moisture). 
-Transfers the netCDFs to the NKN network. 
+Creates netCDFs with percentiles for soil moisture, swe,
+and soil moisture + swe (total moisture).
+Transfers the netCDFs to the NKN network.
 NC_ENVIRON is a conda environment with working cdo and nco tools and bindings.
 ENVIRON is the primary conda environment. They can be the same environment.
 %end

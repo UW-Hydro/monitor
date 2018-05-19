@@ -7,7 +7,7 @@ Check date to determine whether we will run forecast update
 echo "Today is $(date)"
 day=$(date +%%-d)
 #TODO move day check/event to a separate task
-if [[ $day -eq 10 ]] ; then
+if [[ $day -eq 11 ]] ; then
     ecflow_client --event=run_fcst
 else
     ecflow_client --event=skip_fcst

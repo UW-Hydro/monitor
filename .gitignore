@@ -1,5 +1,5 @@
 # ecflow-related files
-*.job[1-9]
+*.job[0-9]
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

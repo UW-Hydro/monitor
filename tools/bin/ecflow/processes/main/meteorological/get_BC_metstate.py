@@ -6,20 +6,21 @@ Uses paramiko to transfer BC metdata netCDFs from the
 NKN network.
 """
 import os
-import paramiko
 import argparse
-import calendar
 from datetime import datetime, timedelta
+import paramiko
 from cdo import Cdo
 import cf_units
 import numpy as np
 import xarray as xr
 
 from tonic.io import read_config
-from monitor import model_tools
 
 
 def main():
+    ''' Download meteorological data for 90 days before the start of MetSim
+        data from the Northwest Knowledge Network for British Columbia.
+    '''
     # read in configuration file
     parser = argparse.ArgumentParser(description='Download met state data ' +
                                      'for British Columbia')
@@ -57,12 +58,6 @@ def main():
     state_start_date = state_end_date - timedelta(days=90)
     state_start_date_format = state_start_date.strftime('%Y-%m-%d')
     state_start_year = state_start_date.strftime('%Y')
-    state_start_day_num = state_start_date.timetuple().tm_yday - 1  # python 0 start cor
-    num_startofyear = 0
-    if calendar.isleap(int(state_start_year)):
-        num_endofyear = 365
-    else:
-        num_endofyear = 364
 
     # an abbreviation and a full name is needed
     varnames = [('pr', 'precipitation_amount'), ('tmmn', 'air_temperature'),

@@ -2,15 +2,15 @@
 %include <head.h>
 %manual
 Run get_metdata.py.
-Copies a new configuration file in order to replace the start 
+Copies a new configuration file in order to replace the start
 and end date.
 Outputs are saved in the Met_Loc defined in config file.
-NC_ENVIRON is a conda environment with working cdo and nco tools and bindings.
-It is defined in the suite definition file.
 %end
 
 source activate %NC_ENVIRON%
+
 export CDO="%NC_ENVIRON%/bin/cdo"
+
 echo "Today is $(date)"
 
 python %ECF_HOME%/processes/main/meteorological/get_metdata.py %CFG_FILE%
